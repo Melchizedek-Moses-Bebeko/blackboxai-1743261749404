@@ -4,18 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dropbox Clone</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="https://cfl.dropboxstatic.com/static/metaserver/static/images/favicon.ico">
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
         }
     </style>
 </head>
 <body class="bg-white text-gray-800">
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm">
+    <nav class="bg-white border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
@@ -23,33 +35,49 @@
                         <i class="fab fa-dropbox text-blue-500 text-3xl"></i>
                         <span class="ml-2 text-xl font-semibold">Dropbox</span>
                     </div>
+                    <!-- Mobile menu button -->
+                    <div class="sm:hidden flex items-center">
+                        <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                        <!-- Navigation items will go here -->
+                        <a href="#" class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">For individuals</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">For teams</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Features</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Pricing</a>
                     </div>
                 </div>
-                <div class="hidden sm:ml-6 sm:flex sm:items-center">
-                    <!-- Right side navigation will go here -->
+                <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-gray-700 text-sm font-medium">Contact sales</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-700 text-sm font-medium">Sign in</a>
+                    <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">Get started</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-gray-50 py-20">
+    <section class="bg-gradient-to-b from-blue-50 to-white py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                 <div class="mb-12 lg:mb-0">
-                    <h1 class="text-4xl font-bold text-gray-900 mb-6">Keep life organized and work moving—all in one place</h1>
-                    <p class="text-lg text-gray-600 mb-8">The secure file sharing and storage solution that employees and IT admins trust.</p>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Keep life organized and work moving—all in one place</h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg">Dropbox brings your files together, in one central place. They're easy to find and safely synced across all your devices—so you can access them anytime, anywhere.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium">Try for free</button>
-                        <button class="border border-gray-300 hover:bg-gray-50 px-6 py-3 rounded-md font-medium">Find out more</button>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition duration-200 transform hover:scale-105">Try for free</button>
+                        <button class="border border-gray-300 bg-white hover:bg-gray-50 px-6 py-3 rounded-md font-medium transition duration-200">Find out more</button>
                     </div>
+                    <p class="text-xs text-gray-500 mt-4">No credit card required</p>
                 </div>
-                <div>
-                    <!-- Hero image will go here -->
-                    <div class="bg-gray-200 h-80 rounded-lg flex items-center justify-center">
-                        <span class="text-gray-400">Hero Image Placeholder</span>
+                <div class="relative">
+                    <div class="bg-white p-2 rounded-lg shadow-xl">
+                        <div class="bg-gray-200 h-80 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-400">Hero Image Placeholder</span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-white p-2 rounded-lg shadow-lg w-32 h-24 flex items-center justify-center">
+                        <span class="text-xs text-gray-500">File preview</span>
                     </div>
                 </div>
             </div>
@@ -57,17 +85,119 @@
     </section>
 
     <!-- Features Section -->
-    <section class="py-20">
+    <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12">Everything you need to work better, all in one place</h2>
-            <!-- Feature cards will go here -->
+            <h2 class="text-3xl font-bold text-center mb-16">Everything you need to work better, all in one place</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-folder-open text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Store and organize</h3>
+                    <p class="text-gray-600">Keep all your files secure in one place and access them from any device.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="bg-green-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-share-alt text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Share and collaborate</h3>
+                    <p class="text-gray-600">Send files of any size and work together in real time on documents.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="bg-purple-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Security you can trust</h3>
+                    <p class="text-gray-600">Enterprise-grade security features to protect your important files.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 py-12">
+    <footer class="bg-gray-100 py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Footer content will go here -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4">Dropbox</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Desktop app</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Mobile app</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Integrations</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Features</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4">Products</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Plus</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Professional</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Business</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Enterprise</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4">Support</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Help center</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Contact us</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Privacy</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Cookies</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4">Community</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Developers</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Referrals</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Forum</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 5 -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">About us</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Jobs</a></li>
+                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-gray-500">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-500">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-500">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-500">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="mt-4 md:mt-0 text-sm text-gray-500">
+                        &copy; 2023 Dropbox Clone. All rights reserved.
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
